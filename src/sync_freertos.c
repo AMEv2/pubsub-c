@@ -1,7 +1,5 @@
 #include "sync.h"
 
-#ifdef PS_SYNC_FREERTOS
-
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
@@ -53,5 +51,3 @@ void semaphore_destroy(semaphore_t *_s) {
 	vSemaphoreDelete(*s);
 	*s = NULL;
 }
-
-#endif

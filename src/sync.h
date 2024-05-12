@@ -2,10 +2,6 @@
 
 #include <stdint.h>
 
-#if !defined(PS_SYNC_CUSTOM) && !defined(PS_SYNC_LINUX)
-#define PS_SYNC_LINUX
-#endif
-
 typedef void *mutex_t;
 typedef void *semaphore_t;
 

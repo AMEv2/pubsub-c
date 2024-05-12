@@ -421,7 +421,7 @@ int ps_subscribe_flags(ps_subscriber_t *su, const char *topic_orig, ps_sub_flags
 				on_empty_flag = true;
 				break;
 			case 'p':
-				if (isdigit(*(fl_str + 1))) {
+				if (isdigit((unsigned char)*(fl_str + 1))) {
 					priority = *(fl_str + 1) - '0';
 				}
 			}
@@ -680,7 +680,7 @@ ps_msg_t *ps_call(ps_msg_t *msg, int64_t timeout) {
 	ps_msg_t *ret_msg = NULL;
 	char rtopic[32] = {0};
 
-	snprintf(rtopic, sizeof(rtopic), "$r.%u", __sync_add_and_fetch(&uuid_ctr, 1));
+	snprintf(rtopic, sizeof(rtopic), "$r.%lu", __sync_add_and_fetch(&uuid_ctr, 1));
 	ps_msg_set_rtopic(msg, rtopic);
 	ps_subscriber_t *su = ps_new_subscriber(1, PS_STRLIST(rtopic));
 	if (ps_publish(msg) == 0) {
