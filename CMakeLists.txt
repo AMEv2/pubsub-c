@@ -1,4 +1,4 @@
-set(COMPONENT_SRCS "src/pubsub.c" "src/sync_freertos.c")
+set(COMPONENT_SRCS "src/pubsub.c" "src/sync_freertos.c" "src/psqueue_b.c")
 set(COMPONENT_ADD_INCLUDEDIRS "src")
 
 register_component()
