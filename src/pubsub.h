@@ -14,6 +14,9 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 //#define PS_USE_GETTIMEOFDAY // Use gettimeofday instead of monotonic clock_gettime
 
 #if !defined(PS_QUEUE_CUSTOM) && !defined(PS_QUEUE_BUCKET)
@@ -608,4 +611,8 @@ void ps_clean_sticky(const char *prefix);
 #define CALL_BUF PS_CALL_BUF
 #define IS_EXTERNAL PS_IS_EXTERNAL
 #define IS_UNTRUSTED PS_IS_UNTRUSTED
+#endif
+
+#ifdef __cplusplus
+}
 #endif
